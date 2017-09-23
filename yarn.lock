@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@types/node@^8.0.26":
-  version "8.0.28"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.28.tgz#86206716f8d9251cf41692e384264cbd7058ad60"
+"@types/node@^8.0.30":
+  version "8.0.30"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.30.tgz#aa3c42946fc6357737eb215349fe728b38679d05"
 
 accepts@^1.2.2:
   version "1.3.4"
@@ -113,7 +113,7 @@ concat-map@0.0.1:
 
 consequences@josephduffy/consequences:
   version "0.1.0"
-  resolved "https://codeload.github.com/josephduffy/consequences/tar.gz/d3484bb21159a5d58c97b1bc38a24d61d83a94d2"
+  resolved "https://codeload.github.com/josephduffy/consequences/tar.gz/fecc7f3627756143da9a14dff29f7ff3a1e846f9"
   dependencies:
     koa "^2.3.0"
     koa-bodyparser "^4.2.0"
@@ -124,6 +124,7 @@ consequences@josephduffy/consequences:
     reflect-metadata "^0.1.10"
     routing-controllers "^0.7.2"
     typedi "^0.5.2"
+    uuid "^3.1.0"
     winston "^2.3.1"
 
 content-disposition@~0.5.0:
@@ -573,6 +574,10 @@ typescript@^2.5.2:
 unpipe@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
+
+uuid@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
 validator@^7.0.0:
   version "7.2.0"

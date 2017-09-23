@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "scripts": {
     "postinstall": "npm run build",
+    "prepublishOnly": "npm run build",
     "build": "tsc",
     "build:watch": "tsc -w",
     "lint": "tslint 'src/**/*.ts' --exclude 'src/**/*.d.ts'",
@@ -22,7 +23,7 @@
     "consequences": "^0.1.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.26",
+    "@types/node": "^8.0.30",
     "consequences": "josephduffy/consequences",
     "tslint": "^5.7.0",
     "tslint-misc-rules": "^3.1.3",

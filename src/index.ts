@@ -1,4 +1,4 @@
-import { Addon, AddonInitialiser, Condition, ConditionInput, UserInput, UserInputType, Variable } from 'consequences/addons';
+import { Addon, AddonInitialiser, Condition, UserInput, Variable } from 'consequences/addons';
 
 import { EventEmitter } from 'events';
 
@@ -10,7 +10,7 @@ export default class BoilerplateInitialiser implements AddonInitialiser {
     supportsMultipleInstances: false,
   };
 
-  public async createInstance(metadata: Addon.Metadata, configOptions?: { [id: string]: any; }): Promise<BoilerplateAddon> {
+  public async createInstance(metadata: Addon.Metadata, saveData: (data: object) => void, savedData?: object): Promise<BoilerplateAddon> {
     return new BoilerplateAddon(metadata);
   }
 
@@ -22,13 +22,13 @@ export class BoilerplateAddon implements Addon {
 
   private boilerplateVariable: BoilerplateVariable;
 
+  public get variables(): Promise<Variable[]> {
+    return Promise.resolve([this.boilerplateVariable]);
+  }
+
   constructor(metadata: Addon.Metadata) {
     this.metadata = metadata;
     this.boilerplateVariable = new BoilerplateVariable();
-  }
-
-  public async loadVariables(): Promise<Variable[]> {
-    return [this.boilerplateVariable];
   }
 
 }
@@ -83,27 +83,46 @@ class BoilerplateCondition implements Condition {
 
   public readonly name = 'Boilerplate Condition for "good_value"';
 
-  public readonly extraInputs = [
-    new BoilerplateConditionInput(),
+  public readonly inputs = [
+    new BoilerplateConditionUserInput(),
+    new BoilerplateConditionExtraGoodValueInput(),
   ];
 
-  public supports(input: any): boolean {
-    return typeof input === 'string';
-  }
+  public async evaluate(inputs: UserInput.Value[]): Promise<boolean> {
+    const userInput = inputs.find((input) => input.uniqueId === 'boilerplate_condition_user_input');
 
-  public evaluate(input: string, userInputs?: UserInput[]): boolean {
-    if (userInputs) {
-      for (const userInput of userInputs) {
-        if (userInput.uniqueId === 'boilerplate_condition_input') {
-          if (input === userInput.value) {
-            return true;
-          }
+    for (const input of inputs) {
+      if (input.uniqueId === 'boilerplate_condition_extra_good_value') {
+        if (input.value === userInput.value) {
+          return true;
         }
       }
     }
 
-    return input === 'good_value';
+    return userInput.value === 'good_value';
   }
+
+}
+
+/**
+ * The value to be checked
+ *
+ * @class BoilerplateConditionInput
+ * @implements {ConditionInput}
+ */
+class BoilerplateConditionUserInput implements UserInput {
+
+  public readonly uniqueId = 'boilerplate_condition_user_input';
+
+  public readonly name = 'Value to Check';
+
+  public readonly hint = 'A string that will also be matched, along with "good_value"';
+
+  public readonly allowsMultiple = false;
+
+  public readonly required = true;
+
+  public readonly kind = UserInput.Kind.string;
 
 }
 
@@ -114,9 +133,9 @@ class BoilerplateCondition implements Condition {
  * @class BoilerplateConditionInput
  * @implements {ConditionInput}
  */
-class BoilerplateConditionInput implements ConditionInput {
+class BoilerplateConditionExtraGoodValueInput implements UserInput {
 
-  public readonly uniqueId = 'boilerplate_condition_input';
+  public readonly uniqueId = 'boilerplate_condition_extra_good_value';
 
   public readonly name = 'Included string';
 
@@ -124,8 +143,8 @@ class BoilerplateConditionInput implements ConditionInput {
 
   public readonly allowsMultiple = false;
 
-  public readonly optional = true;
+  public readonly required = false;
 
-  public readonly type = UserInputType.string;
+  public readonly kind = UserInput.Kind.string;
 
 }
