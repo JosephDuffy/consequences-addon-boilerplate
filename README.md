@@ -1,5 +1,7 @@
 # Consequences Addon Template
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/JosephDuffy/consequences-addon-boilerplate.svg)](https://greenkeeper.io/)
+
 A template to aid with the development of [Consequences](https://github.com/JosephDuffy/consequences) addons.
 
 Feel free to fork/download and use this project as a starting point for your own addon.
