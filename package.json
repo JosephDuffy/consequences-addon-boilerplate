@@ -5,9 +5,8 @@
   "author": "Joseph Duffy",
   "version": "1.0.0",
   "preferGlobal": true,
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "postinstall": "npm run build",
     "prepublishOnly": "npm run build",
     "build": "tsc",
     "build:watch": "tsc -w",
@@ -20,13 +19,13 @@
     "consequences-addon"
   ],
   "peerDependencies": {
-    "consequences": "^0.1.0"
+    "consequences": "latest"
   },
   "devDependencies": {
-    "@types/node": "^8.0.30",
+    "@types/node": "^8.0.33",
     "consequences": "josephduffy/consequences",
     "tslint": "^5.7.0",
     "tslint-misc-rules": "^3.1.3",
-    "typescript": "^2.5.2"
+    "typescript": "^2.5.3"
   }
 }

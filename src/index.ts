@@ -1,4 +1,4 @@
-import { Addon, AddonInitialiser, Condition, UserInput, Variable } from 'consequences/addons';
+import { Addon, AddonInitialiser, Condition, UserInput, Variable } from 'consequences';
 
 import { EventEmitter } from 'events';
 
