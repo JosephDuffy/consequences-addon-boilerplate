@@ -2,7 +2,7 @@ import { Addon, AddonInitialiser, Condition, UserInput, Variable } from 'consequ
 
 import { EventEmitter } from 'events';
 
-export default class BoilerplateInitialiser implements AddonInitialiser {
+export class BoilerplateInitialiser implements AddonInitialiser {
 
   public readonly metadata = {
     name: 'A Consequences Addon',
@@ -33,7 +33,7 @@ export class BoilerplateAddon implements Addon {
 
 }
 
-class BoilerplateVariable extends EventEmitter implements Variable {
+export class BoilerplateVariable extends EventEmitter implements Variable {
 
   public readonly uniqueId = 'boilerplate_variable';
 
@@ -77,7 +77,7 @@ class BoilerplateVariable extends EventEmitter implements Variable {
  * @class BoilerplateCondition
  * @implements {Condition}
  */
-class BoilerplateCondition implements Condition {
+export class BoilerplateCondition implements Condition {
 
   public readonly uniqueId = 'boilerplate_condition';
 
@@ -110,7 +110,7 @@ class BoilerplateCondition implements Condition {
  * @class BoilerplateConditionInput
  * @implements {ConditionInput}
  */
-class BoilerplateConditionUserInput implements UserInput {
+export class BoilerplateConditionUserInput implements UserInput {
 
   public readonly uniqueId = 'boilerplate_condition_user_input';
 
@@ -133,7 +133,7 @@ class BoilerplateConditionUserInput implements UserInput {
  * @class BoilerplateConditionInput
  * @implements {ConditionInput}
  */
-class BoilerplateConditionExtraGoodValueInput implements UserInput {
+export class BoilerplateConditionExtraGoodValueInput implements UserInput {
 
   public readonly uniqueId = 'boilerplate_condition_extra_good_value';
 
@@ -148,3 +148,5 @@ class BoilerplateConditionExtraGoodValueInput implements UserInput {
   public readonly kind = UserInput.Kind.string;
 
 }
+
+export default BoilerplateInitialiser;
