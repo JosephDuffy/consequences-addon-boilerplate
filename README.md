@@ -1,5 +1,6 @@
 # Consequences Addon Template
 
+[![Build Status](https://travis-ci.org/JosephDuffy/consequences-addon-boilerplate.svg?branch=master)](https://travis-ci.org/JosephDuffy/consequences-addon-boilerplate)
 [![Greenkeeper badge](https://badges.greenkeeper.io/JosephDuffy/consequences-addon-boilerplate.svg)](https://greenkeeper.io/)
 
 A template to aid with the development of [Consequences](https://github.com/JosephDuffy/consequences) addons.
