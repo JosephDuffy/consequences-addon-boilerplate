@@ -35,17 +35,29 @@
     "typescript": "^3.0.1"
   },
   "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "src/"
+    ],
     "transform": {
-      "^.+\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "/test/.*\\.ts$",
-    "mapCoverage": true,
+    "testRegex": "/__tests__/.*\\.ts$",
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!**/*.d.ts",
+      "!**/__tests__/*"
+    ],
     "moduleFileExtensions": [
       "ts",
-      "tsx",
       "js",
-      "jsx",
-      "json"
+      "json",
+      "node"
     ]
   }
 }
