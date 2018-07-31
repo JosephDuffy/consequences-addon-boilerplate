@@ -24,28 +24,40 @@
     "consequences": "latest"
   },
   "devDependencies": {
-    "@types/jest": "^22.0.0",
-    "@types/node": "^9.3.0",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.4",
     "consequences": "latest",
-    "jest": "^22.0.0",
+    "jest": "^23.4.2",
     "jest-context": "^2.1.0",
-    "ts-jest": "^22.0.0",
+    "ts-jest": "^23.0.1",
     "tslint": "^5.7.0",
     "tslint-misc-rules": "^3.1.3",
-    "typescript": "^2.5.3"
+    "typescript": "^3.0.1"
   },
   "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "src/"
+    ],
     "transform": {
-      "^.+\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "/test/.*\\.ts$",
-    "mapCoverage": true,
+    "testRegex": "/__tests__/.*\\.ts$",
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!**/*.d.ts",
+      "!**/__tests__/*"
+    ],
     "moduleFileExtensions": [
       "ts",
-      "tsx",
       "js",
-      "jsx",
-      "json"
+      "json",
+      "node"
     ]
   }
 }

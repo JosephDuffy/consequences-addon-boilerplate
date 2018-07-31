@@ -7,7 +7,7 @@ import {
     BoilerplateConditionExtraGoodValueInput,
     BoilerplateInitialiser,
     BoilerplateVariable,
-} from '../src';
+} from '../index';
 
 describe('Boilerplate Addon', () => {
     let initialiser: BoilerplateInitialiser;
