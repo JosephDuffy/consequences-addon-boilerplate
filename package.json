@@ -24,7 +24,7 @@
     "consequences": "latest"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.1",
+    "@types/jest": "^23.3.7",
     "@types/node": "^10.5.4",
     "consequences": "latest",
     "jest": "^23.4.2",
